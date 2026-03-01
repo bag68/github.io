@@ -3,570 +3,511 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VPN | Быстрый и надежный доступ</title>
+    <title>Пират VPN | Happ | v2RayTun</title>
     <style>
-        :root {
-            --primary: #6C63FF;
-            --secondary: #FF6B9D;
-            --dark: #1A1A2E;
-            --light: #F5F5F7;
-            --accent: #00D4FF;
-            --accordion: #2D2B55;
-            --rule-link: #FFD166;
-            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
         }
-        
+
+        :root {
+            --deep-bg: #0b0d17;
+            --card-bg: #14182b;
+            --primary-glow: #7d4eff;
+            --accent-soft: #a970ff;
+            --neat-border: #2c3145;
+            --text-light: #f0f0fa;
+            --text-dim: #b1b6d0;
+            --badge-gold: #ffb347;
+            --badge-violet: #9d65ff;
+            --grad-1: linear-gradient(145deg, #1e2340, #14182b);
+            --grad-2: linear-gradient(145deg, #2b1f3a, #1d1733);
+        }
+
         body {
-            background-color: var(--dark);
-            color: var(--light);
-            line-height: 1.6;
-            overflow-x: hidden;
+            background-color: var(--deep-bg);
+            color: var(--text-light);
+            line-height: 1.5;
         }
-        
+
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
-        
-        header {
-            background: var(--gradient);
-            padding: 2rem 0;
+
+        /* header pirate vibe */
+        .top-header {
+            background: radial-gradient(circle at 30% 30%, #2b2350, #0c0a17);
+            padding: 2.2rem 0 2rem;
+            border-bottom: 1px solid #322b55;
+            margin-bottom: 2.5rem;
             text-align: center;
-            border-radius: 0 0 30px 30px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 25px 30px -15px black;
         }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+        .top-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
-        
-        .tagline {
-            font-size: 1.1rem;
-            opacity: 0.9;
+
+        .top-header h1 span {
+            background: linear-gradient(135deg, #ffb96a, #ca8eff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        
-        .locations {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            text-align: center;
-            backdrop-filter: blur(10px);
-        }
-        
-        .traffic-plans {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0 3rem;
-        }
-        
-        .plan {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        .plan:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .plan h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-        
-        .plan .duration {
+
+        .top-header .tag {
+            color: #cac3ff;
             font-size: 1.2rem;
-            font-weight: bold;
+            margin-top: 0.3rem;
+        }
+
+        .split-panels {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .vpn-card {
+            background: var(--grad-1);
+            border: 1px solid var(--neat-border);
+            border-radius: 2rem;
+            padding: 1.8rem 1.8rem 2rem;
+            box-shadow: 0 25px 40px -15px #00000099;
+            backdrop-filter: blur(5px);
+            transition: transform 0.2s ease, border-color 0.2s;
+        }
+
+        .vpn-card:hover {
+            border-color: #8765e0;
+            transform: translateY(-5px);
+        }
+
+        .vpn-card h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-bottom: 2px dashed #3a3366;
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .badge-multidevice {
+            background: #292e4b;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #b1f0ff;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .plan-short {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 1.2rem 0 1rem;
+        }
+
+        .pill {
+            background: rgba(125, 78, 255, 0.18);
+            border: 1px solid #4d3d8c;
+            border-radius: 60px;
+            padding: 0.5rem 1.2rem;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .pill strong {
+            color: #ffd966;
+            margin-right: 5px;
+        }
+
+        .location-block {
+            margin: 1.2rem 0 0;
+        }
+
+        .location-block p {
+            font-weight: 600;
+            color: var(--accent-soft);
             margin-bottom: 0.5rem;
         }
-        
-        .plan .traffic {
-            font-size: 1.5rem;
-            font-weight: bold;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
+
+        .loc-tag {
+            display: inline-block;
+            background: #1f2542;
+            border-radius: 30px;
+            padding: 0.3rem 1rem;
+            margin: 0.2rem 0.3rem;
+            font-size: 0.9rem;
+            border: 1px solid #43497a;
         }
-        
-        .plan-highlight {
-            background: rgba(108, 99, 255, 0.2);
-            border: 1px solid var(--primary);
+
+        .extra-note {
+            background: #1e1b33;
+            border-radius: 20px;
+            padding: 0.7rem 1.2rem;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: #b9ceff;
         }
-        
-        .setup-section {
-            margin: 3rem 0;
+
+        .table-inline {
+            width: 100%;
+            margin-top: 1.2rem;
+            border-collapse: collapse;
         }
-        
-        .setup-title {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        .table-inline td {
+            padding: 0.5rem 0.2rem;
+            border-bottom: 1px solid #2b2f4a;
         }
-        
-        .accordion {
-            margin-bottom: 1rem;
+
+        .table-inline td:last-child {
+            font-weight: 700;
+            color: #c9adff;
+            text-align: right;
         }
-        
-        .accordion-header {
-            background: var(--accordion);
+
+        .accent {
+            color: #a78eff;
+            font-weight: 600;
+        }
+
+        .app-links {
+            margin: 1.2rem 0 0.5rem;
+        }
+
+        .store-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin: 0.5rem 0 0.8rem;
+        }
+
+        .store-link {
+            background: #2d274a;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            text-decoration: none;
             color: white;
-            padding: 1.2rem;
-            border-radius: 10px;
+            border: 1px solid #5a4e9e;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .store-link:hover {
+            background: #433b70;
+            border-color: #ac9cff;
+        }
+
+        .download-icon {
+            margin-right: 0.4rem;
+        }
+
+        .setup-section {
+            margin-top: 3rem;
+        }
+
+        .accordion-container {
+            background: var(--grad-2);
+            border-radius: 24px;
+            padding: 1.8rem 1.8rem 0.5rem;
+            border: 1px solid #372f52;
+        }
+
+        .accordion-item {
+            background: rgba(12, 8, 22, 0.7);
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            border: 1px solid #312d4a;
+        }
+
+        .accordion-header {
+            background: transparent;
+            padding: 1.3rem 1.8rem;
+            border-radius: 20px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: bold;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+            font-size: 1.3rem;
+            transition: 0.2s;
         }
-        
+
         .accordion-header:hover {
-            transform: scale(1.02);
-            background: #37346B;
+            background: #282345;
         }
-        
+
         .accordion-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 0 0 10px 10px;
+            transition: max-height 0.3s ease;
+            padding: 0 1.8rem;
         }
-        
+
         .accordion-content.active {
-            max-height: 1000px;
+            max-height: 2000px;
+            padding-bottom: 1.8rem;
         }
-        
-        .accordion-body {
-            padding: 1.5rem;
-        }
-        
-        .step {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-            border-left: 3px solid var(--primary);
-        }
-        
-        .step-number {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background: var(--gradient);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-        
-        .download-btn {
-            display: inline-block;
-            background: var(--gradient);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1rem;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .rule-link {
-            color: var(--rule-link);
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin: 0.5rem 0;
-            padding: 0.3rem 0.8rem;
-            border-radius: 5px;
-            background: rgba(255, 209, 102, 0.1);
-            transition: all 0.3s;
-        }
-        
-        .rule-link:hover {
-            background: rgba(255, 209, 102, 0.2);
-            transform: translateX(5px);
-        }
-        
-        .support {
-            text-align: center;
-            margin: 3rem 0;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
+
+        .step-box {
+            background: #1f1c33;
             border-radius: 20px;
+            padding: 1.5rem;
+            margin: 1rem 0;
         }
-        
-        .support a {
-            color: var(--accent);
+
+        .step {
+            margin-bottom: 1.8rem;
+        }
+
+        .step strong {
+            color: #ffcf8a;
+        }
+
+        .btn-download {
+            background: linear-gradient(145deg, #7b4efe, #b063ff);
+            color: white;
+            border: none;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
             text-decoration: none;
-            font-weight: bold;
+            display: inline-block;
+            margin: 0.5rem 0 0.2rem;
+            box-shadow: 0 8px 20px #4d30aa70;
         }
-        
+
+        .rule-link {
+            background: #2a2550;
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            margin: 0.3rem 0.3rem;
+            color: #b9b3ff;
+            text-decoration: none;
+            border: 1px solid #7165c9;
+            font-size: 0.9rem;
+        }
+
+        .support-area {
+            margin: 3rem 0 2rem;
+            background: #171d32;
+            border-radius: 40px;
+            padding: 2.2rem;
+            text-align: center;
+        }
+
         footer {
             text-align: center;
-            padding: 2rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 3rem;
+            padding: 2rem 0 1.5rem;
+            border-top: 1px solid #272b42;
+            color: var(--text-dim);
         }
-        
-        .icon {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-        
-        /* Мобильная адаптация */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .tagline {
-                font-size: 1rem;
-            }
-            
-            .traffic-plans {
+
+        @media (max-width: 850px) {
+            .split-panels {
                 grid-template-columns: 1fr;
-                gap: 1rem;
             }
-            
-            .plan {
-                padding: 1rem;
-            }
-            
-            .plan h3 {
-                font-size: 1.3rem;
-            }
-            
-            .setup-title {
-                font-size: 1.7rem;
-            }
-            
-            .accordion-header {
-                padding: 1rem;
-                font-size: 0.95rem;
-            }
-            
-            .accordion-body {
-                padding: 1rem;
-            }
-            
-            .step {
-                padding-left: 1rem;
-            }
-            
-            .container {
-                padding: 0 10px;
-            }
-            
-            header {
-                padding: 1.5rem 0;
-                border-radius: 0 0 20px 20px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.7rem;
-            }
-            
-            .setup-title {
-                font-size: 1.5rem;
-            }
-            
-            .plan h3 {
-                font-size: 1.2rem;
-            }
-            
-            .plan .traffic {
-                font-size: 1.3rem;
-            }
-            
-            .download-btn {
-                padding: 0.7rem 1.2rem;
-                font-size: 0.9rem;
-            }
-            
-            .step-number {
-                width: 25px;
-                height: 25px;
-                line-height: 25px;
-                font-size: 0.9rem;
+            .top-header h1 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
+    <div class="top-header">
         <div class="container">
-            <h1>🚀 Быстрый VPN</h1>
-            <p class="tagline">Сохрани свои данные в безопастности</p>
+            <h1>🏴‍☠️ <span>Пират VPN</span> | Happ | v2RayTun</h1>
+            <div class="tag">💎 Премиальный доступ на базе VLESS. Почувствуй реальную скорость в один клик!</div>
         </div>
-    </header>
-    
-    <div class="container">
-        <section class="locations">
-            <h2>🌐 Доступные локации</h2>
-            <p>Амстердам</p>
-        </section>
-        
-        <section>
-            <h2 class="setup-title">📊 Тарифные планы</h2>
-            <div class="traffic-plans">
-                <div class="plan plan-highlight">
-                    <div>
-                        <h3>🔥 ХАЙП</h3>
-                        <div class="duration">6 месяцев</div>
-                        <div class="traffic">Безлимитный трафик</div>
-                    </div>
-                    <div class="plan-badge">🔥 ЛУЧШИЙ ВЫБОР</div>
-                </div>
-                <div class="plan">
-                    <div>
-                        <h3>💪 БУСТ</h3>
-                        <div class="duration">3 месяца</div>
-                        <div class="traffic">800 ГБ</div>
-                    </div>
-                </div>
-                <div class="plan">
-                    <div>
-                        <h3>⚡ СТАНДАРТ</h3>
-                        <div class="duration">2 месяца</div>
-                        <div class="traffic">200 ГБ</div>
-                    </div>
-                </div>
-                <div class="plan">
-                    <div>
-                        <h3>🚀 ТЕСТ</h3>
-                        <div class="duration">1 месяц</div>
-                        <div class="traffic">100 ГБ</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="setup-section">
-            <h2 class="setup-title">🎯 Как подключиться?</h2>
-            
-            <div class="accordion">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="icon">💻</span> Windows</span>
-                    <span class="icon">▼</span>
-                </div>
-                <div class="accordion-content">
-                    <div class="accordion-body">
-                        <h3>Hiddify</h3>
-                        
-                        <div class="step">
-                            <div class="step-number">1</div>
-                            <strong>Скачай программу</strong>
-                            <p><a href="https://apps.microsoft.com/detail/9PDFNL3QV2S5?hl=neutral&gl=RU&ocid=pdpshare" class="download-btn" target="_blank">Скачать Hiddify</a></p>
-                        </div>
-                        
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <strong>Добавь конфиги</strong>
-                            <ul>
-                                <li>Скопируй персональную ссылку, которую тебе выдал бот</li>
-                                <li>Открой Hiddify и нажми "+ Новый профиль"</li>
-                                <li>Нажми "Добавить из буфера"</li>
-                                <li>Готово! Включай защищенное соединение</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="accordion">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="icon">📱</span> iOS</span>
-                    <span class="icon">▼</span>
-                </div>
-                <div class="accordion-content">
-                    <div class="accordion-body">
-                        <h3>Streisand</h3>
-                        <p><em>Требуется iOS 14+</em></p>
-                        
-                        <div class="step">
-                            <div class="step-number">1</div>
-                            <strong>Скачай программу</strong>
-                            <p><a href="https://apps.apple.com/us/app/streisand/id6450534064" class="download-btn" target="_blank">Скачать Streisand</a></p>
-                        </div>
-                        
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <strong>Добавь конфиги</strong>
-                            <p>Скопируй ключ из бота, открой Streisand, нажми «+» в правом верхнем углу, затем выбери «Добавить из буфера».</p>
-                        </div>
-                        
-                        <div class="step">
-                            <div class="step-number">3</div>
-                            <strong>Роутинг (рекомендуется)</strong>
-                            <p>Настрой правила, чтобы сайты внутри страны открывались без VPN.</p>
-                            <p><a href="about:blank" target="_blank" class="rule-link">Добавить правило: Всё через VPN. Сайты РФ напрямую</a></p>
-                            <p><a href="about:blank" target="_blank" class="rule-link">Добавить правило: Через VPN только соц-сети</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="accordion">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="icon">🤖</span> Android</span>
-                    <span class="icon">▼</span>
-                </div>
-                <div class="accordion-content">
-                    <div class="accordion-body">
-                        <h3>Hiddify Next</h3>
-                        
-                        <div class="step">
-                            <div class="step-number">1</div>
-                            <strong>Скачай программу</strong>
-                            <p><a href="https://github.com/hiddify/hiddify-next/releases/download/v2.5.7/Hiddify-Android-universal.apk" class="download-btn" target="_blank">Скачать Hiddify Next</a></p>
-                        </div>
-                        
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <strong>Добавь конфиги</strong>
-                            <ul>
-                                <li>Скопируй персональную ссылку, которую тебе выдал бот</li>
-                                <li>Открой Hiddify и нажми "+ Новый профиль"</li>
-                                <li>Нажми "Добавить из буфера"</li>
-                                <li>Готово! Включай защищенное соединение</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="accordion">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><span class="icon">📺</span> Android TV</span>
-                    <span class="icon">▼</span>
-                </div>
-                <div class="accordion-content">
-                    <div class="accordion-body">
-                        <p>Краткая инструкция по настройке VPN4TV на Android TV</p>
-                        
-                        <div class="step">
-                            <div class="step-number">1</div>
-                            <strong>Найди и открой Google Play Store на твоем Android TV</strong>
-                        </div>
-                        
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <strong>В поиске введи "VPN4TV" и установи приложение</strong>
-                        </div>
-                        
-                        <div class="step">
-                            <div class="step-number">3</div>
-                            <strong>Открой VPN4TV. На экране появится QR-код</strong>
-                        </div>
-                        
-                        <div class="step">
-                            <div class="step-number">4</div>
-                            <strong>Отсканируй QR-код с помощью камеры смартфона</strong>
-                        </div>
-                        
-                        <div class="step">
-                            <div class="step-number">5</div>
-                            <strong>Перейди по ссылке в Telegram-бота VPN4TV и следуй инструкциям</strong>
-                        </div>
-                        
-                        <div class="step">
-                            <div class="step-number">6</div>
-                            <strong>Вернись к телевизору и нажми круглую кнопку для активации VPN</strong>
-                        </div>
-                        
-                        <div class="step">
-                            <div class="step-number">7</div>
-                            <strong>Готово! Телевизор защищен VPN</strong>
-                        </div>
-                        
-                        <h4>Дополнительные возможности:</h4>
-                        <ul>
-                            <li>Для добавления новых профилей используй кнопку "Добавить профиль через Telegram"</li>
-                            <li>Если нет возможности сканировать QR-код, введи 10-значный код в боте</li>
-                            <li>Для переключения между профилями используй выпадающий список</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="support">
-            <h2>💬 Нужна помощь?</h2>
-            <p>Оперативная поддержка и продление конфигов:</p>
-            <p><a href="https://t.me/skipper_Taverna_Piratov" target="_blank">Telegram: @skipper_Taverna_Piratov</a></p>
-            <p><em>Обновлено 07.03.2025</em></p>
-        </section>
     </div>
-    
+
+    <div class="container">
+        <!-- два главных блока: два разных VPN -->
+        <div class="split-panels">
+            <!-- левая колонка: ВПН v2rayNg / Happ -->
+            <div class="vpn-card">
+                <h2>🌍 ВПН [v2rayNg, Happ]</h2>
+                <table class="table-inline">
+                    <tr><td>🔥 1 месяц</td><td>100 ГБ</td></tr>
+                    <tr><td>⚡ 3 месяца</td><td>800 ГБ</td></tr>
+                    <tr><td>🚀 6 месяцев</td><td>Безлимит</td></tr>
+                    <tr><td>💎 12 месяцев</td><td>Безлимит</td></tr>
+                </table>
+                <div class="location-block">
+                <div class="badge-multidevice">📱 Количество устройств неограниченно</div>
+                    <p>🌐 Локация</p>
+                    <span class="loc-tag">🇳🇱 Амстердам</span>
+                </div>
+            </div>
+
+            <!-- правая колонка: ВПН + обход белых списков -->
+            <div class="vpn-card">
+                <h2>🌍 ВПН + Обход белых списков [v2rayNg, Happ]</h2>
+                <table class="table-inline">
+                    <tr><td>📆 30 дней</td><td>🔥 безлимит</td></tr>
+                    <tr><td>📆 3 месяца</td><td>🔥 безлимит</td></tr>
+                    <tr><td>📆 6 месяцев</td><td>🔥 безлимит</td></tr>
+                    <tr><td>📆 365 дней</td><td>🔥 безлимит</td></tr>
+                </table>
+                <div class="location-block">
+                    <div class="badge-multidevice">
+                    💡 В базе доступ на 1 устройство. За доп. плату можно подключить ещё устройства
+                    </div>
+                    <p>🌐 Локации (множество стран)</p>
+                    <div>
+                        <span class="loc-tag">🇷🇺 Россия</span> <span class="loc-tag">🇦🇱 Албания</span> <span class="loc-tag">🇮🇹 Италия</span>
+                        <span class="loc-tag">🇳🇱 Нидерланды</span> <span class="loc-tag">🇵🇱 Польша</span> <span class="loc-tag">🇫🇮 Финляндия</span>
+                        <span class="loc-tag">🇪🇪 Эстония</span> <span class="loc-tag">🇸🇪 Швеция</span> <span class="loc-tag">🇱🇻 Латвия</span>
+                        <span class="loc-tag">🇬🇧 Великобритания</span> <span class="loc-tag">🇨🇭 Швейцария</span> <span class="loc-tag">🇨🇦 Канада</span>
+                        <span class="loc-tag">🇺🇸 США</span> <span class="loc-tag">🇮🇳 Индия</span> <span class="loc-tag">🇯🇵 Япония</span>
+                        <span class="loc-tag">🇧🇦 Босния</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- БЛОК ПРИЛОЖЕНИЙ HAPP (подробно) -->
+        <div style="background: #1d1a33; border-radius: 36px; padding: 2rem; margin: 2rem 0 2.5rem;">
+            <h2 style="font-size: 2rem; display: flex; gap: 0.8rem; margin-bottom: 1.2rem;">🌀 Happ - Proxy Utility <span style="font-size: 1.2rem; background: #262b47; padding: 0.2rem 1rem; border-radius: 40px;">Xray core</span></h2>
+            <p style="color: #cbc3ff; max-width: 700px;">Happ — кроссплатформенное приложение для удобной работы с прокси-серверами. Доступно на Windows, macOS, Linux, iOS, Android, TV.</p>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+                <!-- iOS column -->
+                <div>
+                    <h3>📱 iOS</h3>
+                    <div class="store-grid">
+                        <a class="store-link" href="https://apps.apple.com/us/app/happ-proxy-utility/id6504287215" target="_blank">🌍 Global App Store</a>
+                        <a class="store-link" href="https://apps.apple.com/ru/app/happ-proxy-utility-plus/id6746188973" target="_blank">🇷🇺 Rus App Store</a>
+                    </div>
+                </div>
+                <!-- Android -->
+                <div>
+                    <h3>🤖 Android</h3>
+                    <div class="store-grid">
+                        <a class="store-link" href="https://play.google.com/store/apps/details?id=com.happproxy" target="_blank">📦 Google Play</a>
+                        <a class="store-link" href="https://github.com/Happ-proxy/happ-android/releases/latest/download/Happ.apk" target="_blank">📥 GitHub APK</a>
+                    </div>
+                </div>
+                <!-- Desktop -->
+                <div>
+                    <h3>💻 Desktop</h3>
+                    <div class="store-grid">
+                        <a class="store-link" href="https://github.com/Happ-proxy/happ-desktop/releases/latest/download/setup-Happ.x64.exe" target="_blank">🪟 Windows x64</a>
+                        <a class="store-link" href="https://apps.apple.com/us/app/happ-proxy-utility/id6504287215" target="_blank">🍏 macOS (Global)</a>
+                        <a class="store-link" href="https://apps.apple.com/ru/app/happ-proxy-utility-plus/id6746188973" target="_blank">🍏 macOS (Rus)</a>
+                    </div>
+                </div>
+                <!-- Android TV -->
+                <div>
+                    <h3>📺 Android TV</h3>
+                    <div class="store-grid">
+                        <a class="store-link" href="https://play.google.com/store/apps/details?id=com.happproxy" target="_blank">📺 Google Play</a>
+                        <a class="store-link" href="https://github.com/Happ-proxy/happ-android/releases/latest/download/Happ.apk" target="_blank">📥 APK (TV)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ИНСТРУКЦИИ аккордеон: Hiddify, v2rayNG, Happ детально -->
+        <section class="setup-section">
+            <h2 style="font-size: 2.2rem; margin-bottom: 1.8rem;">⚙️ Общая инструкция (Hiddify / v2rayNG / Happ)</h2>
+
+            <div class="accordion-container">
+                <!-- 3) Happ (все платформы + ручное добавление) -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleItem(this)">
+                        <span>🌀 Happ (iOS / Android / Desktop / TV) — добавление вручную</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="step-box">
+                            <p><strong>Поддерживаемые протоколы:</strong> VLESS, VMess, Socks5, Trojan, Shadowsocks.</p>
+                            <div class="step"><strong>📌 Ручное добавление (на примере мобильной версии)</strong><br>1. Скопируй ссылку-конфиг (полученную от бота).<br>2. В приложении Happ нажми «+» в правом верхнем углу.<br>3. Выбери «Ручной ввод» → укажи нужный протокол (VLESS и т.д.).<br>4. Заполни поля (адрес, порт, UUID и пр.) либо вставь JSON, если есть.<br>5. Нажми «Готово» — конфиг появится в списке серверов.</div>
+                            <div class="step"><strong>📌 Альтернатива (импорт из буфера)</strong><br>В некоторых версиях Happ есть опция «Добавить из буфера» — если ссылка содержит все параметры.</div>
+                            <p><em>Для Windows/macOS процесс аналогичен: кнопка "+" → ручной ввод или импорт.</em></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2) v2rayNG (Android) – отдельно -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleItem(this)">
+                        <span>📲 v2rayNG (Android)</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="step-box">
+                            <div class="step"><strong>1️⃣ Установка</strong><br>Скачай v2rayNG: <a class="store-link" href="https://play.google.com/store/apps/details?id=com.v2ray.ang" target="_blank">Google Play</a> или <a class="store-link" href="https://github.com/2dust/v2rayNG/releases" target="_blank">GitHub</a></div>
+                            <div class="step"><strong>2️⃣ Добавление конфигурации</strong><br>Скопируй линк (VLESS/VMess) → открой v2rayNG → нажми "+" → "Импорт конфигурации из буфера" → подключись.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1) Hiddify (Windows / Android) – оставляем, как просили -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleItem(this)">
+                        <span>🔰 Hiddify (Windows / Android)</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="step-box">
+                            <div class="step"><strong>1️⃣ Скачай Hiddify</strong><br>Windows: <a class="store-link" href="https://apps.microsoft.com/detail/9PDFNL3QV2S5?hl=neutral&gl=RU" target="_blank">Microsoft Store</a><br>Android: <a class="store-link" href="https://github.com/hiddify/hiddify-next/releases/download/v2.5.7/Hiddify-Android-universal.apk" target="_blank">Hiddify Next APK</a></div>
+                            <div class="step"><strong>2️⃣ Добавь конфиг</strong><br>Скопируй ссылку из бота → в Hiddify нажми «+ Новый профиль» → «Добавить из буфера» → готово.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
     <footer>
         <div class="container">
-            <p>© 2025 Быстрый VPN. Все права защищены.</p>
+            <p>🏴‍☠️ Пират VPN | Быстрый VLESS | Доступ через Happ / v2rayNG </p>
+            <p style="margin-top: 0.5rem;">© 2025 — скорость без границ</p>
         </div>
     </footer>
-    
+
     <script>
-        function toggleAccordion(header) {
+        function toggleItem(header) {
             const content = header.nextElementSibling;
+            const arrow = header.querySelector('.arrow');
             const isActive = content.classList.contains('active');
-            
-            // Закрыть все аккордеоны
-            document.querySelectorAll('.accordion-content').forEach(item => {
-                item.classList.remove('active');
+
+            // закрыть все другие (для аккуратности можно и не закрывать, но сделаем веер)
+            document.querySelectorAll('.accordion-content').forEach(c => {
+                if (c !== content) c.classList.remove('active');
             });
-            
-            document.querySelectorAll('.accordion-header .icon:last-child').forEach(icon => {
-                icon.textContent = '▼';
+            document.querySelectorAll('.accordion-header .arrow').forEach(a => {
+                if (a !== arrow) a.textContent = '▼';
             });
-            
-            // Открыть текущий, если был закрыт
+
             if (!isActive) {
                 content.classList.add('active');
-                header.querySelector('.icon:last-child').textContent = '▲';
+                arrow.textContent = '▲';
+            } else {
+                content.classList.remove('active');
+                arrow.textContent = '▼';
             }
         }
-        
-        // Открыть первый аккордеон по умолчанию
-        document.addEventListener('DOMContentLoaded', function() {
-            const firstAccordion = document.querySelector('.accordion-header');
-            if (firstAccordion) {
-                toggleAccordion(firstAccordion);
-            }
+
+        // открыть первый пункт по умолчанию (Hiddify)
+        window.addEventListener('DOMContentLoaded', () => {
+            const firstHeader = document.querySelector('.accordion-header');
+            if (firstHeader) toggleItem(firstHeader);
         });
     </script>
 </body>
